@@ -32,9 +32,9 @@ const obtenerPosts = async () => {
 // metodo put 
 
 
-const modificarPosts = async (id, titulo) => {
-    const consulta = "UPDATE posts SET titulo= $2 WHERE id = $1";
-    const values = [id, titulo];
+const modificarPosts = async (id) => {
+    const consulta = "UPDATE posts SET like= like +1 WHERE id = $1";
+    const values = [id];
     const result = await pool.query(consulta, values);
     const { rowCount } = await pool.query(consulta, values);
     if (rowCount === 0) {
