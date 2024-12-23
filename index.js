@@ -42,7 +42,7 @@ app.put("/posts/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { titulo } = req.body;
-    await modificarPosts(id, titulo);
+    await modificarPosts(id);
     res.status(200).send("Posts modificado con éxito");
   } catch ({ code, message }) {
     res.status(code).send(message);
